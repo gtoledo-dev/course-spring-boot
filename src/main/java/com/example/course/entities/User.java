@@ -3,7 +3,6 @@ package com.example.course.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,66 +17,69 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private String email;
-	private String phone;
-	private String password;
+	private String cpf;
+	private String decription;
+
 	
 	public User() {
 		
 	}
 
-	public User(Long id, String name, String email, String phone, String password) {
+
+	public User(Long id, String name, String cpf, String decription) {
+		super();
 		this.id = id;
 		this.name = name;
-		this.email = email;
-		this.phone = phone;
-		this.password = password;
+		this.cpf = cpf;
+		this.decription = decription;
 	}
+
 
 	public Long getId() {
 		return id;
 	}
 
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 
 	public String getName() {
 		return name;
 	}
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getEmail() {
-		return email;
+
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
-	public String getPhone() {
-		return phone;
+
+	public String getDecription() {
+		return decription;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+
+	public void setDecription(String decription) {
+		this.decription = decription;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(email, id, name, password, phone);
+		return Objects.hash(id);
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -88,15 +90,19 @@ public class User implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(email, other.email) && Objects.equals(id, other.id) && Objects.equals(name, other.name)
-				&& Objects.equals(password, other.password) && Objects.equals(phone, other.phone);
+		return Objects.equals(id, other.id);
 	}
+
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", password=" + password
-				+ "]";
+		return "User [id=" + id + ", name=" + name + ", cpf=" + cpf + ", decription=" + decription + "]";
 	}
+
+	
+
+
+
 	
 	
 	
